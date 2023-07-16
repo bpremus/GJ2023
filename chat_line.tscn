@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnsbfkllwos5c"]
+
+[ext_resource type="PackedScene" uid="uid://d1e0fpaet3c2w" path="res://Inventory/slot.tscn" id="1_fyogd"]
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 792.0
+offset_bottom = 72.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Slot" parent="MarginContainer/HFlowContainer" instance=ExtResource("1_fyogd")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "This is an example of a multiline text "

@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://blmfolfajgcpt"]
+
+[ext_resource type="PackedScene" uid="uid://d1e0fpaet3c2w" path="res://Inventory/slot.tscn" id="1_h8pb6"]
+
+[node name="PanelContainer" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 96.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Slot" parent="MarginContainer/HFlowContainer" instance=ExtResource("1_h8pb6")]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HFlowContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HFlowContainer/GridContainer"]
+layout_mode = 2
+text = "Your response:"
+
+[node name="1" type="Button" parent="MarginContainer/HFlowContainer/GridContainer"]
+layout_mode = 2
+text = "Maybe next time"
+
+[node name="2" type="Button" parent="MarginContainer/HFlowContainer/GridContainer"]
+layout_mode = 2
+text = "I would love to but..."

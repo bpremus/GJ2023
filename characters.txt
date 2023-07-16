@@ -1,0 +1,16 @@
+<characters>
+	<character 
+		id = "JD"
+		firstName  = "Jonh"
+		lastName   = "Doe"
+		imageIndex = "1"
+	>
+	</character>
+	<character 
+		id = "JS"
+		firstName  = "Jeeny"
+		lastName   = "Smith"
+		imageIndex = "2"
+	/>
+	
+<characters>

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=3 format=3 uid="uid://bpf8j04b1vixk"]
+
+[ext_resource type="Script" path="res://Character/character_data.gd" id="1_f58uo"]
+[ext_resource type="Texture2D" uid="uid://dsdys8onc8a1c" path="res://Images/avatar.png" id="2_pqqjk"]
+
+[resource]
+script = ExtResource("1_f58uo")
+name = "John Doe"
+description = "This is a test character"
+texture = ExtResource("2_pqqjk")

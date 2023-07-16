@@ -1,0 +1,16 @@
+scene := 1	
+	Jenny Smith := You should not be here.
+		
+scene := 2	
+	Jenny Smith := Look, Jonh, a new face.
+	John Doe := Hello sir, my name is Jonh Doe, and this is my sister Janny.
+	option := Please to meet you := goto1 
+	option := I am sorry, but I'm in a hurry := goto2
+	goto := 1
+		Jenny Smith := Pleased to meet you.
+	goto := 2
+		Jenny Smith := Have a nice day.
+		John Doe := bye
+		 
+scene := 3	
+	John Doe := You should not be here.
