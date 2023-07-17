@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8pjefkc01j7c"]
+
+[ext_resource type="Script" path="res://gController.gd" id="1_u5yj2"]
+[ext_resource type="Script" path="res://uiController.gd" id="2_lcyli"]
+[ext_resource type="Script" path="res://chatController.gd" id="3_i0ffi"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GameController" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_u5yj2")
+
+[node name="UIController" type="Control" parent="." node_paths=PackedStringArray("character_window", "chatwindow")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_lcyli")
+character_window = NodePath("../MarginContainer/HFlowContainer/CharacterWindow")
+chatwindow = NodePath("../MarginContainer/HFlowContainer/Chatwindow")
+
+[node name="ChatController" type="Control" parent="." node_paths=PackedStringArray("character_container")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_i0ffi")
+character_container = NodePath("../MarginContainer/HFlowContainer/CharacterWindow/TextureRect/CharacterContainer")
+
+[node name="StatsController" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(800, 600)
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="CharacterWindow" type="MarginContainer" parent="MarginContainer/HFlowContainer"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HFlowContainer/CharacterWindow"]
+layout_mode = 2
+
+[node name="CharacterContainer" type="GridContainer" parent="MarginContainer/HFlowContainer/CharacterWindow/TextureRect"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 60.0
+
+[node name="Chatwindow" type="MarginContainer" parent="MarginContainer/HFlowContainer"]
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HFlowContainer/Chatwindow"]
+layout_mode = 2

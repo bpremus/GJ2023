@@ -1,33 +1,71 @@
 [gd_scene load_steps=2 format=3 uid="uid://blmfolfajgcpt"]
 
-[ext_resource type="PackedScene" uid="uid://d1e0fpaet3c2w" path="res://Inventory/slot.tscn" id="1_h8pb6"]
+[ext_resource type="Texture2D" uid="uid://dsdys8onc8a1c" path="res://Images/avatar.png" id="1_hhj24"]
 
-[node name="PanelContainer" type="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 96.0
+offset_bottom = 104.0
 grow_horizontal = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
 layout_mode = 2
 
-[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HFlowContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="HFlowContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_hhj24")
+
+[node name="MarginContainer2" type="MarginContainer" parent="HFlowContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VFlowContainer" type="VFlowContainer" parent="HFlowContainer/MarginContainer2"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
-[node name="Slot" parent="MarginContainer/HFlowContainer" instance=ExtResource("1_h8pb6")]
+[node name="GridContainer" type="GridContainer" parent="HFlowContainer/MarginContainer2/VFlowContainer"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/HFlowContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HFlowContainer/MarginContainer2/VFlowContainer/GridContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HFlowContainer/GridContainer"]
+[node name="Label" type="Label" parent="HFlowContainer/MarginContainer2/VFlowContainer/GridContainer/MarginContainer"]
 layout_mode = 2
-text = "Your response:"
+text = "MY Response:"
 
-[node name="1" type="Button" parent="MarginContainer/HFlowContainer/GridContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="HFlowContainer/MarginContainer2/VFlowContainer/GridContainer"]
 layout_mode = 2
-text = "Maybe next time"
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
 
-[node name="2" type="Button" parent="MarginContainer/HFlowContainer/GridContainer"]
+[node name="Button" type="Button" parent="HFlowContainer/MarginContainer2/VFlowContainer/GridContainer/MarginContainer2"]
 layout_mode = 2
-text = "I would love to but..."
+text = "I was thinking about it"
+
+[node name="MarginContainer3" type="MarginContainer" parent="HFlowContainer/MarginContainer2/VFlowContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+
+[node name="Button" type="Button" parent="HFlowContainer/MarginContainer2/VFlowContainer/GridContainer/MarginContainer3"]
+layout_mode = 2
+text = "Maybe"
+
+[node name="MarginContainer4" type="MarginContainer" parent="HFlowContainer/MarginContainer2/VFlowContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+
+[node name="Button" type="Button" parent="HFlowContainer/MarginContainer2/VFlowContainer/GridContainer/MarginContainer4"]
+layout_mode = 2
+text = "Next time"
