@@ -24,4 +24,6 @@ func onHover() -> void:
 func _on_gui_input(event):
 	if event is InputEventMouseButton and event.is_pressed():
 		print("set character:" + characterName)
+		var node = get_node("/root/Node2D/ChatController")
+		node.character_press(characterName)
 	pass # Replace with function body.

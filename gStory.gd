@@ -2,11 +2,25 @@ extends Control
 
 #story document
 const storyText : String = "res://story.txt"
+const characterText : String = "res://characters.txt"
 
 func _ready():
 	pass
 
 func loadChapter(index: int) -> void:
+	pass
+
+func getCharactersInScene(storyBlock: Array) -> Array:
+	var characters = []
+	for i in range(len(storyBlock)):
+		var line = storyBlock[i]
+		if isDialogLine(line):
+			var character = getCharacterName(line)
+			if character not in characters:
+				characters.append(character)
+			
+	print (characters)
+	return characters
 	pass
 
 func loadStoryText() -> String:
@@ -24,6 +38,13 @@ func loadStory(story_path : String ) -> String:
 func isStart(line : String) -> bool:
 	if line.find("start :=") > -1 :
 		return true
+	return false
+	
+func isStartTag(line : String, tag : String) -> bool:
+	if line.find("start :=") > -1 :
+		var tagLine = line.split(":=")[1]
+		if tagLine.strip_edges() == tag:
+			return true
 	return false
 	
 func isEnd(line : String) -> bool:
@@ -49,7 +70,7 @@ func isOption(line : String) -> bool:
 	return false
 			
 func isDialogLine(line: String) -> bool:
-	if (isOption(line) or isGoTo(line) or isEnd(line)): 
+	if (isOption(line) or isGoTo(line) or isEnd(line) or isStart(line)): 
 		return false
 	if len(line.split(":=")) == 2: 
 		return true
@@ -93,7 +114,7 @@ func getSegementAsDialogObject(storyBlock : Array):
 		dailogObj.gcLines.append(loption)
 	return dailogObj
 				
-func getDialogSegment(segmentTag : String, storyBlock: Array):
+func getDialogSegment(segmentTag : String, startTag : String, storyBlock: Array):
 	var storyBlocks = []
 	var found = false
 	for i in range(len(storyBlock)):
@@ -101,7 +122,7 @@ func getDialogSegment(segmentTag : String, storyBlock: Array):
 		#print (line)
 		#if we are seraching from start
 		if segmentTag == "start" : 
-			if isStart(line) :
+			if isStartTag(line, startTag) :
 				found = true 
 				#print("found start")
 				continue	
@@ -115,7 +136,11 @@ func getDialogSegment(segmentTag : String, storyBlock: Array):
 		if found :	
 			if isGoTo(line) : 
 				#print("found goto")
-				found = false;
+				found = false
+				break
+			
+			if isStart(line) :
+				found = false
 				break
 				
 		# we have reached the end
@@ -134,13 +159,13 @@ func getDialogSegment(segmentTag : String, storyBlock: Array):
 	return storyBlocks
 		
 
-func getStorySegment(index: int, content: String):
+func getStorySegment(index: String, content: String):
 	var block = content.split('\n')
 	var found = false
 	var newBlock = []
 	for line in block:
-		if line.find("scene := ") > -1 :
-			if index == int(line.split(":=")[1]):
+		if line.find("scene :=") > -1 :
+			if index == line.split(":=")[1].strip_edges():
 				found = true
 			else:
 				found = false

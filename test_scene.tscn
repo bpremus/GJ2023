@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8pjefkc01j7c"]
+[gd_scene load_steps=7 format=3 uid="uid://b8pjefkc01j7c"]
 
 [ext_resource type="Script" path="res://gStory.gd" id="1_jkdnm"]
 [ext_resource type="Script" path="res://gController.gd" id="1_u5yj2"]
 [ext_resource type="Script" path="res://uiController.gd" id="2_lcyli"]
 [ext_resource type="Script" path="res://chatController.gd" id="3_i0ffi"]
 [ext_resource type="Script" path="res://gchatScroll.gd" id="5_qpfsb"]
+[ext_resource type="Texture2D" uid="uid://bbgi0spku2rqb" path="res://Images/codetarium_steam_punk_dark_city_top_down_view_cc8ceb74-2492-4b2e-a8d4-576ee00146d7.png" id="6_ngwiw"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -96,3 +97,16 @@ script = ExtResource("5_qpfsb")
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/HFlowContainer/Chatwindow/TextureRect/ScrollContainer"]
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0.290196, 0.654902, 0.752941, 1)
+z_index = -2
+custom_minimum_size = Vector2(800, 600)
+offset_right = 1154.0
+offset_bottom = 648.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+texture = ExtResource("6_ngwiw")
+expand_mode = 2

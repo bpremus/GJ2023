@@ -1,28 +1,49 @@
 scene := 22	
 	Jenny Smith := You should not be here.
 		
-scene := 2
-
+scene := 23
+	
 	start := auto
+		Narrator := this is narrative story started by itself
+		Narrator := And its a short one, click on a character to talk to
+		Alice Wood := I am also part of a narrative story
+
+	start := Alice Wood
+		Alice Wood := she just turned her head the other way
+
+	start := Jenny Smith
 		Jenny Smith := Look, Jonh, a new face.
 		John Doe := Hello sir, my name is Jonh Doe, and this is my sister Janny.
-		option := Please to meet you := OK 
+		option := Please to meet you := newguy 
+		option := I am sorry, but I'm in a hurry := opt_sorry 
+		
+	start := John Doe
+		John Doe := Hello sir, how do you do?
+		option := How do you do := newguy 
 		option := I am sorry, but I'm in a hurry := opt_sorry
 	
-	goto := OK
-		Jenny Smith := Pleased to meet you.
-		option := Please to meet you := goto3 
-		option := I am sorry, but I'm in a hurry := goto4
+	goto := newguy
+		Jenny Smith := The time looks grim
+		Jenny Smith := Not sure what we can do about it
+		John Doe := There is always hope
+		Jenny Smith := If you believe in science
+		John Doe := What do you belive in Sir?
+		option := I do believe in sciene := newguy2 
+		option := I belive in miracle := newguy3
+		option := I am sorry, but I'm in a hurry := opt_sorry
+		
+	goto := newguy2
+		Jenny Smith := Indeed...
+		Jenny Smith := Come tomorrow, we may discuss about this a bit more
+		
+	goto := newguy3
+		Jenny Smith := Miracle wont help us much
+		Jenny Smith := Its been a pleasure
 		
 	goto := opt_sorry
 		Jenny Smith := Have a nice day.
 		John Doe := bye
-		
-	goto := 4
-		Jenny Smith := Pleased to meet you.
-		option := Please to meet you := goto3 
-		option := I am sorry, but I'm in a hurry := goto4
-		 
+				 
 	end :=
 scene := 21	
 	John Doe := You should not be here.
