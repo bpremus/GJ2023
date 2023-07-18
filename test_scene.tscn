@@ -30,13 +30,17 @@ script = ExtResource("2_lcyli")
 character_window = NodePath("../MarginContainer/HFlowContainer/CharacterWindow")
 chatwindow = NodePath("../MarginContainer/HFlowContainer/Chatwindow")
 
-[node name="ChatController" type="Control" parent="." node_paths=PackedStringArray("character_container")]
+[node name="ChatController" type="Control" parent="." node_paths=PackedStringArray("character_container", "story_controller", "chat_container")]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 60.0
 script = ExtResource("3_i0ffi")
 character_container = NodePath("../MarginContainer/HFlowContainer/CharacterWindow/TextureRect/CharacterContainer")
+story_controller = NodePath("../Story")
+chat_container = NodePath("../MarginContainer/HFlowContainer/Chatwindow/TextureRect/GridContainer")
 
 [node name="StatsController" type="Control" parent="."]
 layout_mode = 3
@@ -77,3 +81,10 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HFlowContainer/Chatwindow"]
 layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HFlowContainer/Chatwindow/TextureRect"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 60.0

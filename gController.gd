@@ -1,6 +1,8 @@
 extends Control
 
 #keep stats on a game progress
+
+@export var characterList: Array 
 @export var characters_on_screen : Array
 @export var seelcted_character : String
 @export var tags : Array

@@ -7,7 +7,7 @@ extends PanelContainer
 var characterName : String = ""
 
 func instance() -> void:
-	print("me")
+	pass
 
 func setCharacter(character : gCharacter) -> void:
 	if character:

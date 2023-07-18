@@ -1,13 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnsbfkllwos5c"]
+[gd_scene load_steps=3 format=3 uid="uid://cnsbfkllwos5c"]
 
 [ext_resource type="Texture2D" uid="uid://dsdys8onc8a1c" path="res://Images/avatar.png" id="1_3mnwn"]
+[ext_resource type="Script" path="res://ChatLineBlock.gd" id="1_55ueg"]
 
-[node name="PanelContainer" type="PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("label", "texture_rect", "reponse_container")]
 custom_minimum_size = Vector2(600, 20)
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 72.0
 grow_horizontal = 2
+script = ExtResource("1_55ueg")
+label = NodePath("MarginContainer/HFlowContainer/MarginContainer2/GridContainer/Label")
+texture_rect = NodePath("MarginContainer/HFlowContainer/MarginContainer/TextureRect")
+reponse_container = NodePath("MarginContainer/HFlowContainer/MarginContainer2/GridContainer/MarginContainer4/GridContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -34,7 +39,20 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Label" type="Label" parent="MarginContainer/HFlowContainer/MarginContainer2"]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HFlowContainer/MarginContainer2"]
 layout_mode = 2
-size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="MarginContainer/HFlowContainer/MarginContainer2/GridContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
 text = "This is an example of a multiline text "
+
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/HFlowContainer/MarginContainer2/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HFlowContainer/MarginContainer2/GridContainer/MarginContainer4"]
+layout_mode = 2

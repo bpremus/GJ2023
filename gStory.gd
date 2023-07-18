@@ -4,13 +4,17 @@ extends Control
 const storyText : String = "res://story.txt"
 
 func _ready():
-	var story = loadStory(storyText)
-	var block = getStorySegment(2, story)
-	getDialogSegment(block)
+	pass
 
 func loadChapter(index: int) -> void:
 	pass
 
+func loadStoryText() -> String:
+	return loadStory(storyText)
+
+func getCharacterFromString(characterName : String) -> gCharacter:
+	var char  = gCharacter.new()
+	return char
 
 func loadStory(story_path : String ) -> String:
 	var file = FileAccess.open(story_path, FileAccess.READ)
@@ -18,18 +22,25 @@ func loadStory(story_path : String ) -> String:
 	return content
 	
 func isStart(line : String) -> bool:
-	if line.find("start :=  ") > -1 :
+	if line.find("start :=") > -1 :
 		return true
 	return false
 	
 func isEnd(line : String) -> bool:
-	if line.find("end :=  ") > -1 :
+	if line.find("end :=") > -1 :
 		return true
 	return false
 	
 func isGoTo(line : String) -> bool:
-	if line.find("goto :=  ") > -1 :
+	if line.find("goto :=") > -1 :
 		return true
+	return false
+
+func isGoToTag(line : String, tag : String) -> bool:
+	if line.find("goto :=") > -1 :
+		var tagLine = line.split("goto :=")[1]
+		if tagLine.strip_edges() == tag:
+			return true
 	return false
 		
 func isOption(line : String) -> bool:
@@ -37,21 +48,91 @@ func isOption(line : String) -> bool:
 		return true
 	return false
 			
-func getDialogSegment(storyBlock: Array):
+func isDialogLine(line: String) -> bool:
+	if (isOption(line) or isGoTo(line) or isEnd(line)): 
+		return false
+	if len(line.split(":=")) == 2: 
+		return true
+	return false
+
+func getCharacterName(line : String) -> String:
+	return line.split(":=")[0].strip_edges()
+	
+func getCharacterText(line: String) -> String:
+	return line.split(":=")[1].strip_edges()
+			
+func getOptionText(line : String) -> String:
+	return line.split(":=")[1].strip_edges()
+	pass
+
+func getOptionTag(line : String) -> String:
+	return line.split(":=")[2].strip_edges()
+	pass	
+	
+func getSegementAsDialogObject(storyBlock : Array):
+	var dailogObj = gcDialog.new()
+	var loption = gcLine.new()
+	
 	for i in range(len(storyBlock)):
 		var line = storyBlock[i]
-		if isStart(line) : 
-			print("start")
 		
-'''
-	read from the start till end 
-	add to array
-	must return with response or end
-	
-	each reponse option is new dialog in array, response holds pointer to next dialog in array	
+		if (isOption(line)):
+			var lresponse = gcResponse.new()
+			lresponse.text = getOptionText(line)
+			lresponse.gotoLine = getOptionTag(line)
+			loption.response.append(lresponse)
+		
+		if isDialogLine(line) :
+			var l = gcLine.new()
+			l.characterName = getCharacterName(line)
+			l.text = getCharacterText(line)
+			#add dialog lines			
+			dailogObj.gcLines.append(l)
+			
+	if (len(loption.response)) :
+		dailogObj.gcLines.append(loption)
+	return dailogObj
+				
+func getDialogSegment(segmentTag : String, storyBlock: Array):
+	var storyBlocks = []
+	var found = false
+	for i in range(len(storyBlock)):
+		var line = storyBlock[i]
+		#print (line)
+		#if we are seraching from start
+		if segmentTag == "start" : 
+			if isStart(line) :
+				found = true 
+				#print("found start")
+				continue	
 
-'''	
-	
+		#we are seraching for a tag
+		if isGoToTag(line, segmentTag) :
+			print("found tag", segmentTag)
+			found = true
+			continue	
+		
+		if found :	
+			if isGoTo(line) : 
+				#print("found goto")
+				found = false;
+				break
+				
+		# we have reached the end
+		if isEnd(line):
+			found = false
+			break
+			#print("found end")
+				
+		# if its an option 
+		#we store store it and process it later
+		
+		# add story line into array
+		if found : 
+			storyBlocks.append(line.strip_edges())
+
+	return storyBlocks
+		
 
 func getStorySegment(index: int, content: String):
 	var block = content.split('\n')

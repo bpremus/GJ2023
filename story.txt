@@ -3,18 +3,18 @@ scene := 22
 		
 scene := 2
 
-	start := 	
+	start := auto
 		Jenny Smith := Look, Jonh, a new face.
 		John Doe := Hello sir, my name is Jonh Doe, and this is my sister Janny.
-		option := Please to meet you := goto1 
-		option := I am sorry, but I'm in a hurry := goto2
+		option := Please to meet you := OK 
+		option := I am sorry, but I'm in a hurry := opt_sorry
 	
-	goto := 1
+	goto := OK
 		Jenny Smith := Pleased to meet you.
 		option := Please to meet you := goto3 
 		option := I am sorry, but I'm in a hurry := goto4
 		
-	goto := 2
+	goto := opt_sorry
 		Jenny Smith := Have a nice day.
 		John Doe := bye
 		
