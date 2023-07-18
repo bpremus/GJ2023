@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8pjefkc01j7c"]
+[gd_scene load_steps=5 format=3 uid="uid://b8pjefkc01j7c"]
 
+[ext_resource type="Script" path="res://gStory.gd" id="1_jkdnm"]
 [ext_resource type="Script" path="res://gController.gd" id="1_u5yj2"]
 [ext_resource type="Script" path="res://uiController.gd" id="2_lcyli"]
 [ext_resource type="Script" path="res://chatController.gd" id="3_i0ffi"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Story" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_jkdnm")
 
 [node name="GameController" type="Control" parent="."]
 layout_mode = 3
