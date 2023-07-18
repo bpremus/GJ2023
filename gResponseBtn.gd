@@ -1,6 +1,7 @@
 extends MarginContainer
 
 @export var responsebutton : Control
+@export var lineController : Control
 
 var _response : gcResponse
 
@@ -13,6 +14,13 @@ func setLine(response : gcResponse) -> void :
 	pass
 
 func _on_gui_input(event):
-	if event is InputEventMouseButton and event.is_pressed():
-		print ("ANS: ", _response.gotoLine)
-	pass # Replace with function body.
+	#if event is InputEventMouseButton and event.is_pressed():
+	#not working correctly
+	pass 
+
+func _on_button_pressed():
+	var node = get_node("/root/Node2D/ChatController")
+	node.response_press(_response.gotoLine)
+	lineController.replaceChatResponseWithText(_response.text)
+	pass 
+

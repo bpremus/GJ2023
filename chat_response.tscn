@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://gResponseBtn.gd" id="1_a6pkx"]
 
-[node name="MarginContainer" type="MarginContainer" node_paths=PackedStringArray("responsebutton")]
+[node name="ResponseBlock" type="MarginContainer" node_paths=PackedStringArray("responsebutton")]
 custom_minimum_size = Vector2(100, 20)
 anchors_preset = 10
 anchor_right = 1.0
@@ -16,4 +16,5 @@ custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 text = "Next time"
 
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="toggled" from="Button" to="." method="_on_button_toggled"]

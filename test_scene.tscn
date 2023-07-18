@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8pjefkc01j7c"]
+[gd_scene load_steps=6 format=3 uid="uid://b8pjefkc01j7c"]
 
 [ext_resource type="Script" path="res://gStory.gd" id="1_jkdnm"]
 [ext_resource type="Script" path="res://gController.gd" id="1_u5yj2"]
 [ext_resource type="Script" path="res://uiController.gd" id="2_lcyli"]
 [ext_resource type="Script" path="res://chatController.gd" id="3_i0ffi"]
+[ext_resource type="Script" path="res://gchatScroll.gd" id="5_qpfsb"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -40,7 +41,7 @@ offset_bottom = 60.0
 script = ExtResource("3_i0ffi")
 character_container = NodePath("../MarginContainer/HFlowContainer/CharacterWindow/TextureRect/CharacterContainer")
 story_controller = NodePath("../Story")
-chat_container = NodePath("../MarginContainer/HFlowContainer/Chatwindow/TextureRect/GridContainer")
+chat_container = NodePath("../MarginContainer/HFlowContainer/Chatwindow/TextureRect/ScrollContainer/GridContainer")
 
 [node name="StatsController" type="Control" parent="."]
 layout_mode = 3
@@ -82,9 +83,16 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HFlowContainer/Chatwindow"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/HFlowContainer/Chatwindow/TextureRect"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 60.0
-offset_bottom = 60.0
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HFlowContainer/Chatwindow/TextureRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 14.0
+offset_bottom = 643.0
+grow_horizontal = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+script = ExtResource("5_qpfsb")
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HFlowContainer/Chatwindow/TextureRect/ScrollContainer"]
+layout_mode = 2

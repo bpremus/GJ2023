@@ -25,4 +25,14 @@ func addChatResponse(chatLine : gcResponse):
 	var slot = response_prefab.instantiate()
 	reponse_container.add_child(slot)
 	slot.setLine(chatLine)
+	slot.lineController = self
+	pass
+	
+func replaceChatResponseWithText(line : String) :
+	var children = reponse_container.get_children()
+	for c in children:
+		reponse_container.remove_child(c)
+		c.queue_free()
+	setText(line)
+	print("restoring chat message")
 	pass

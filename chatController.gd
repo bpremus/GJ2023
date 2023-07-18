@@ -10,6 +10,16 @@ var chatLinePrefab = preload("res://chat_line.tscn")
 
 var curentStoryBlock : Array
 
+
+# Handler method for response_press
+func response_press(tag : String):
+	print("clicked:", tag)
+	loadStoryNext(tag)
+	
+	
+func character_press() -> void:
+	pass
+
 func _ready():
 	var character = gCharacter.new()
 	character.name = "John Doe"
@@ -22,23 +32,13 @@ func _ready():
 	addCharacter(character)
 	
 	loadStory()
-
+	
 #keep track of characters 
 func loadStory() -> void:
 	
 	var story = story_controller.loadStoryText()
 	curentStoryBlock = story_controller.getStorySegment(2, story)
-	'''
-	var segment = story_controller.getDialogSegment("start", curentStoryBlock)
-	var dialog = story_controller.getSegementAsDialogObject(segment)
-
-	for i in range(len(dialog.gcLines)):
-		var line = dialog.gcLines[i]
-		addNextChatLine(line)
-	pass
-	'''
 	loadStoryNext("start")
-	loadStoryNext("opt_sorry")
 		
 func loadStoryNext(tag : String) -> void:
 	
