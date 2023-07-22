@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1e0fpaet3c2w"]
 
-[ext_resource type="Script" path="res://Inventory/gSlot.gd" id="1_y7jvw"]
-[ext_resource type="Texture2D" uid="uid://dsdys8onc8a1c" path="res://Images/avatar.png" id="2_h60pg"]
+[ext_resource type="Script" path="res://Inventory/slot.gd" id="1_4t3i5"]
+[ext_resource type="Texture2D" uid="uid://drj6dy6uo6lhw" path="res://Images/avatars/1.png" id="2_ofpf8"]
 
 [node name="Slot" type="PanelContainer" node_paths=PackedStringArray("cName", "cLocation", "cTexture")]
-custom_minimum_size = Vector2(200, 64)
+custom_minimum_size = Vector2(300, 64)
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_y7jvw")
+script = ExtResource("1_4t3i5")
 cName = NodePath("MarginContainer/HFlowContainer/VFlowContainer/strName")
 cLocation = NodePath("MarginContainer/HFlowContainer/VFlowContainer/strLocation")
 cTexture = NodePath("MarginContainer/HFlowContainer/TextureRect")
@@ -24,7 +24,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HFlowContainer"]
 layout_mode = 2
-texture = ExtResource("2_h60pg")
+texture = ExtResource("2_ofpf8")
 
 [node name="VFlowContainer" type="VFlowContainer" parent="MarginContainer/HFlowContainer"]
 layout_mode = 2

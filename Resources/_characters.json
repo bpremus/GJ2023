@@ -1,0 +1,157 @@
+{
+	"player" :
+	{
+		"name": "Big RicksRoll",
+		"gender" : 2,
+		"age": 25,
+		"avatarID" : 6 
+	},
+	"factions" : [
+		{
+			"id" : 1,
+			"name" : "Sublandia"
+	
+		},
+		{
+			"id" : 2,
+			"name" : "Bletezish"
+		}
+	],
+	
+	"family" : [
+		{
+			"id" : 1,
+			"name" : "Robertson"
+		},
+		{
+			"id" : 2,
+			"name" : "Alvarado"
+		},
+	],
+	
+	"political" : [
+			
+	],
+	
+	"characters": [
+		{
+		"character": {
+			"rank": 1,
+			"id" : 1,
+			"name": "Joyce Robertson",
+			"locationID": [1, 2, 3],
+			"gender" : 2,
+			"age": 25,
+				
+			"faction": 2,
+			"family" : 1,
+			"subfraction" : 1,
+			
+			"occupation": "servant",
+
+			"likenessTowardsYou": 0,
+			"liknessFactor": 2,
+			"gossipChance": 3,
+			"lieChance": 1,
+			
+			"_comment": "fields set by Code",
+			"master" : [],
+			"servants" : [],
+			"connections" : [],
+			"softConnections" : [],
+
+			"tags" : [],
+			"tagsLike": ["t1", "t2"],
+			"tagsDontLike": ["t3", "t4"],
+
+			"secret" : 
+			[
+			
+			
+			]
+				
+			
+		}
+	},
+	{
+		"character": {
+			"rank": 2,
+			"id" : 2,
+			"name": "Hailey Alvarado",
+			"gender" : 1,
+			"locationID": [1, 2, 3],
+			"age": 23,
+			"faction": 1,
+			"family" : 2,
+			"subfraction" : 1,
+			
+			"occupation": "asistant",
+
+			"likenessTowardsYou": 0,
+			"liknessFactor": 2,
+			"gossipChance": 3,
+			"lieChance": 1,
+			
+			"_comment": "fields set by Code",
+			"master" : [],
+			"servants" : [],
+			"connections" : [],
+			"softConnections" : [],
+
+			"tags" : [],
+			"tagsLike": ["t1", "t2"],
+			"tagsDontLike": ["t3", "t4"],
+
+			"secret" : 
+			[
+				{
+				"rank" : 1,
+				"tags": ["prostRing"],
+				"followup": [""],
+				"text": "runs a prostitution ring",
+				"hint": "prostitution"
+				
+				},
+			
+			]
+		}
+	},
+	{
+		"character": {
+			"rank": 3,
+			"id" : 3,
+			"name": "Hailey Toll",
+			"gender" : 2,
+			"locationID": [1, 2, 3],
+			"age": 23,
+			"faction": 1,
+			"family" : 2,
+			"subfraction" : 1,
+			
+			
+			"occupation": "noble",
+
+			"likenessTowardsYou": 0,
+			"liknessFactor": 2,
+			"gossipChance": 3,
+			"lieChance": 1,
+			
+			"_comment": "fields set by Code",
+			"master" : [],
+			"servants" : [],
+			"connections" : [],
+			"softConnections" : [],
+
+			"tags" : [],
+			"tagsLike": ["t1", "t2"],
+			"tagsDontLike": ["t3", "t4"],
+
+			"secret" : 
+			[
+			
+			
+			]
+		}
+	}
+	]
+}

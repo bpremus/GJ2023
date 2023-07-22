@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn67jvvd8eemk"]
+
+[ext_resource type="Script" path="res://Controllers/gCharController.gd" id="1_5mocv"]
+[ext_resource type="Script" path="res://Controllers/gStoryController.gd" id="1_h2ngo"]
+[ext_resource type="Script" path="res://gchatScroll.gd" id="2_ftdpj"]
+[ext_resource type="Script" path="res://Controllers/guiController.gd" id="3_w8kp6"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Story" type="Control" parent="." node_paths=PackedStringArray("characterController", "uiController")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_h2ngo")
+characterController = NodePath("../CharacterController")
+uiController = NodePath("../UI")
+
+[node name="CharacterController" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_5mocv")
+
+[node name="UI" type="Control" parent="." node_paths=PackedStringArray("characterNode", "chatNode")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_w8kp6")
+characterNode = NodePath("MarginContainer/HFlowContainer/CharacterWindow/TextureRect/CharacterContainer")
+chatNode = NodePath("MarginContainer/HFlowContainer/Chatwindow/TextureRect/ScrollContainer/GridContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HFlowContainer" type="HFlowContainer" parent="UI/MarginContainer"]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="CharacterWindow" type="MarginContainer" parent="UI/MarginContainer/HFlowContainer"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/HFlowContainer/CharacterWindow"]
+layout_mode = 2
+
+[node name="CharacterContainer" type="GridContainer" parent="UI/MarginContainer/HFlowContainer/CharacterWindow/TextureRect"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 60.0
+
+[node name="Chatwindow" type="MarginContainer" parent="UI/MarginContainer/HFlowContainer"]
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 2
+theme_override_constants/margin_left = 100
+
+[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/HFlowContainer/Chatwindow"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/MarginContainer/HFlowContainer/Chatwindow/TextureRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 14.0
+offset_bottom = 643.0
+grow_horizontal = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+script = ExtResource("2_ftdpj")
+
+[node name="GridContainer" type="GridContainer" parent="UI/MarginContainer/HFlowContainer/Chatwindow/TextureRect/ScrollContainer"]
+layout_mode = 2

@@ -1,0 +1,366 @@
+{
+	"dialogs" :
+	{
+		
+	"comment" : "configuration",
+		
+	"tagTransition" : 
+	{
+		"new" : "met",
+		"heard" : "met",
+		
+	},	
+		
+	"comment" : "npc talking",
+	"character" : { 
+	"greeting" : 
+	[
+		{
+			"rank" : 1,
+			"tags": ["new"],
+			"text": "Hello Sir"
+		},
+		{
+			"rank" : 1,
+			"tags": ["new"],
+			"followup": ["->notMet"],
+			"text": "Hello I dont believe we have met before?"
+		},
+		{
+			"rank" : 1,
+			"tags": ["met"],
+			"text": "Hello Sir {me}"
+		},
+		{
+			"rank" : 1,
+			"tags": ["met"],
+			"followup": ["->strangeTime"],
+			"text": "Hello Sir {me}, strange times are upon us"
+		},
+		{
+			"rank" : 1,
+			"tags": ["heard"],
+			"text": "Hello Sir {me}, you dont have to introduce yourslef"
+		},
+		{
+			"rank" : 1,
+			"tags": ["->notMet2"],
+			"text": "Hello Sir {me}, you dont have to introduce yourslef"
+		},
+		{
+			"rank" : 1,
+			"tags": ["->notMet2"],
+			"followup": ["->rep"],
+			"text": "Ah my reputation, was it good or bad"
+		},
+		{
+			"rank" : 1,
+			"tags": ["->rep"],
+			"followup": ["->goodBad"],
+			"text": "I hope its not bad"
+		},
+		{
+			"rank" : 1,
+			"tags": ["->rep"],
+			"followup": ["->goodBad"],
+			"text": "I hoepe its well earned"
+		},
+		{
+			"rank" : 1,
+			"tags": ["->agree"],
+			"text": "Indeed"
+		},
+		{
+			"rank" : 1,
+			"tags": ["->agree"],
+			"text": "I couldnt agree more"
+		},
+		{
+			"rank" : 1,
+			"tags": ["->agree"],
+			"text": "You are absolutely right"
+		},
+	] 
+	},
+
+	"comment" : "we are responding",
+	"player" : { 
+	"greeting" : 
+	[
+		{
+			"rank" : 1,
+			"tags": ["new"],
+			"text": "Hello, let me introduce myself, I am {me}"
+		},
+		{
+			"rank" : 1,
+			"tags": ["->notMet"],
+			"text": "Indeed we havent, I am {me}"
+		},
+		{
+			"rank" : 1,
+			"tags": ["->notMet"],
+			"followup": ["->notMet2"],
+			"text": "You do seem familiar, my name is {me}"
+		},
+		{
+			"rank" : 1,
+			"tags": ["->notMet"],
+			"followup": ["->notMet2"],
+			"text": "I belive we have seen eachother, I am {me}"
+		},
+		{
+			"rank" : 1,
+			"tags": ["->rep"],
+			"followup": ["->agree"],
+			"text": "Its something we should not bother ourself"
+		},
+		{
+			"rank" : 1,
+			"tags": ["met"],
+			"text": "Hello again {character}"
+		},
+		{
+			"rank" : 1,
+			"tags": ["heard"],
+			"followup": ["->rep"],
+			"text": "Hello {character}, your reputation precedes you"
+		},
+		{
+			"rank" : 1,
+			"tags": ["->goodBad"],
+			"text": "you do not have to worry"
+		},
+		{
+			"rank" : 1,
+			"tags": ["->strangeTime"],
+			"followup": ["->agree"],
+			"text": "Indeed, we should not bother with what we cant control"
+		}
+	],
+
+	"options" : 
+	[
+			{
+			"rank" : 1,
+			"tags": ["met"],
+			"followup": ["->agree"],
+			"text": "I have a task for you"
+			},
+			{
+			"rank" : 1,
+			"tags": ["know"],
+			"followup": ["->agree"],
+			"text": "Have you heard something unusual?",
+			"comment": "this will peek in connections and try to find gossip hint",
+			},
+			{
+			"rank" : 1,
+			"tags": ["favor"],
+			"followup": ["->agree"],
+			"text": "I have a task for you"
+			}
+	]
+	
+	},	
+		
+		
+		
+		
+		
+		
+		
+	"obsolete" : "------------------------------------",	
+	"_replaces" : "{me} {origin}",
+	"options" : [
+			{
+					"rank" : 1,
+					"tags": [],
+					"text": "GiveCommand"
+			},
+			{
+					"rank" : 1,
+					"tags": [],
+					"text": "Small Talk"
+			}
+	],
+	"greetings": [
+				{
+					"rank" : 1,
+					"faction" : 1,
+					"tags": [],
+					"text": "Hello Sir"
+				},
+				{
+					"rank" : 1,
+					"faction" : 2,
+					"tags": [],
+					"text": "Hello Monsieur"
+				},
+				{
+					"rank" : 1,
+					"faction" : 2,
+					"tags": ["met"],
+					"text": "Hello Monsieur, what can I do for you?"
+				},
+				{
+					"rank" : 1,
+					"faction" : 2,
+					"tags": ["met", "dislike"],
+					"text": "Monsieur {me}, you are not welcom here"
+				},
+				{
+					"rank" : 1,
+					"faction" : 2,
+					"tags": ["dislike"],
+					"text": "Please leave"
+				},
+				{
+					"rank" : 1,
+					"faction" : 2,
+					"tags": ["met", "dislike"],
+					"text": "Monsieur please leave"
+				},
+				{
+					"rank" : 2,
+					"faction" : 1,
+					"tags": [],
+					"text": "Hello Stranger!"
+				},
+				{
+					"rank" : 3,
+					"faction" : 1,
+					"tags": [],
+					"text": "Its nice to meet you, I am {character}"
+				},
+				{
+					"rank" : 3,
+					"faction" : 2,
+					"tags": [],
+					"text": "Hello, we have never met before, my name is {character}"
+				},
+				{
+					"rank" : 1,
+					"faction" : 1,
+					"tags": ["met"],
+					"text": "Hello Sir {me}"
+				},
+				{
+					"rank" : 2,
+					"faction" : 1,
+					"tags": ["met"],
+					"text": "Hello {me}"
+				},
+				{
+					"rank" : 3,
+					"faction" : 1,
+					"tags": ["met"],
+					"text": "I must say {me}, I am astounded at the wonder and prosperity of {faction} such strong traditions, such class!"
+				},
+				{
+					"rank" : 3,
+					"faction" : 1,
+					"tags": ["met", "dislike"],
+					"text": "Excuse me, i dont have time to spare"
+				}
+			],
+		"ourResponses":
+		[
+			{
+					"rank" : 1,
+					"faction" : 1,
+					"tags": [],
+					"text": "My name is {me}"
+			},
+			{
+					"rank" : 2,
+					"faction" : 1,
+					"tags": [],
+					"text": "Please to meet you, I am {me}"
+			},
+			{
+					"rank" : 3,
+					"faction" : 1,
+					"tags": [],
+					"text": "Indeed, we have never met before, my name is {me}"
+			},
+			{
+					"rank" : 1,
+					"faction" : 1,
+					"tags": ["met"],
+					"text": "Excuse me {character}"
+			},
+			{
+					"rank" : 2,
+					"faction" : 1,
+					"tags": ["met"],
+					"text": "Hello again {character}"
+			},
+			{
+					"rank" : 3,
+					"faction" : 1,
+					"tags": ["met"],
+					"text": "Dear {character}, thank you"
+			}
+		],
+		"smalltalk" :
+		[
+			{
+					"rank" : 1,
+					"faction" : 1,
+					"tags": [],
+					"link": ["rain"], 
+					"text": "At least its not raining"
+			},
+			{
+					"rank" : 1,
+					"faction" : 1,
+					"tags": [],
+					"link": ["clock"], 
+					"text": "Ahh, the town clock is not working anymore"
+			}
+		],
+		"smalltalkResponse" :
+		[
+			{
+					"rank" : 1,
+					"faction" : 1,
+					"tags": [],
+					"link": ["rain"],
+					"text": "Indeed, its all connected as there is no sun"
+			},
+			{
+					"rank" : 1,
+					"faction" : 1,
+					"tags": [],
+					"link": ["rain"], 
+					"text": "It will rain eventually, the sun cannot stay hidden for long"
+			}
+		],
+		"gossip" :
+		[
+			{
+					"rank" : 1,
+					"faction" : 1,
+					"tags": ["met"],
+					"text": "I have heard about {gossip}"
+			},
+			{
+					"rank" : 1,
+					"faction" : 1,
+					"tags": ["met", "like"],
+					"text": "I have heard about {secret}"
+			}
+		],
+
+		"offer" :
+		[
+			{
+					"rank" : 3,
+					"faction" : 1,
+					"tags": ["met"],
+					"text": "Are you perhaps interested in {offer}"
+			}
+		],
+	}
+}

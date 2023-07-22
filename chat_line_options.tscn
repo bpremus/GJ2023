@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnsbfkllwos5c"]
+[gd_scene load_steps=3 format=3 uid="uid://ck5v1dqk2u1gt"]
 
-[ext_resource type="Script" path="res://ChatLineBlock.gd" id="1_55ueg"]
-[ext_resource type="Texture2D" uid="uid://vbkc43ht24fw" path="res://Images/avatars/4.png" id="2_yb7wr"]
+[ext_resource type="Script" path="res://ChatLineBlock.gd" id="1_i802f"]
+[ext_resource type="Texture2D" uid="uid://vbkc43ht24fw" path="res://Images/avatars/4.png" id="2_ap5cb"]
 
 [node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("cName", "cText", "cTexture", "reponse_container")]
 custom_minimum_size = Vector2(600, 20)
@@ -9,11 +9,11 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 72.0
 grow_horizontal = 2
-script = ExtResource("1_55ueg")
+script = ExtResource("1_i802f")
 cName = NodePath("MarginContainer/HFlowContainer/MarginContainer/MarginContainer/cName")
 cText = NodePath("MarginContainer/HFlowContainer/MarginContainer2/cText")
 cTexture = NodePath("MarginContainer/HFlowContainer/MarginContainer/TextureRect")
-reponse_container = NodePath("MarginContainer/HFlowContainer/MarginContainer2/MarginContainer/chat_options")
+reponse_container = NodePath("MarginContainer/HFlowContainer/MarginContainer2/GridContainer/MarginContainer4/GridContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -33,7 +33,7 @@ theme_override_constants/margin_right = 10
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_vertical = 0
-texture = ExtResource("2_yb7wr")
+texture = ExtResource("2_ap5cb")
 expand_mode = 1
 stretch_mode = 4
 
@@ -42,13 +42,11 @@ layout_mode = 2
 theme_override_constants/margin_left = 80
 
 [node name="cName" type="Label" parent="MarginContainer/HFlowContainer/MarginContainer/MarginContainer"]
-custom_minimum_size = Vector2(100, 60)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
 theme_override_font_sizes/font_size = 12
 text = "characer_name"
-vertical_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HFlowContainer"]
 layout_mode = 2
@@ -69,17 +67,29 @@ theme_override_constants/margin_bottom = 5
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/HFlowContainer/MarginContainer2/GridContainer/MarginContainer4"]
 layout_mode = 2
+columns = 2
 
 [node name="cText" type="Label" parent="MarginContainer/HFlowContainer/MarginContainer2"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "text"
 vertical_alignment = 1
-autowrap_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HFlowContainer/MarginContainer2"]
+[node name="GridContainer2" type="GridContainer" parent="MarginContainer/HFlowContainer/MarginContainer2"]
 layout_mode = 2
 
-[node name="chat_options" type="GridContainer" parent="MarginContainer/HFlowContainer/MarginContainer2/MarginContainer"]
+[node name="Button" type="Button" parent="MarginContainer/HFlowContainer/MarginContainer2/GridContainer2"]
 layout_mode = 2
+text = "Are you perhaps interested in {offer}"
+
+[node name="Button2" type="Button" parent="MarginContainer/HFlowContainer/MarginContainer2/GridContainer2"]
+layout_mode = 2
+text = "test button"
+
+[node name="Button3" type="Button" parent="MarginContainer/HFlowContainer/MarginContainer2/GridContainer2"]
+layout_mode = 2
+text = "I have heard about {secret}"
+
+[node name="Button4" type="Button" parent="MarginContainer/HFlowContainer/MarginContainer2/GridContainer2"]
+layout_mode = 2
+text = "I have heard about {gossip}"
